@@ -13,6 +13,9 @@
     <!-- links to firebase -->
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
+    <!-- moment.js ref -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
     <style>
         body{margin-left: 50px; margin-right: 100px;}
         .header{text-align: center;  background-color:rgb(240, 236, 236); color: dodgerblue; padding-top: 30px; padding-bottom: 30px;}
@@ -29,12 +32,12 @@
 </head>
 <body>
     <div class = "header row box">
-        <h1>Anytime is Train Time</h1>
-        <h3>Choo Choo. Chee Chee.</h3>
+        <h1>Train Time</h1>
+        <h3>Don't miss it!</h3>
     </div>
     <div class="row box">
        <p>Current Train Schedule</p>
-       <table class="table">
+       <table class="table" id="train-table">
             <thead>
               <tr>
                 <th scope="col">Train Name</th>
@@ -45,43 +48,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row" id = "name1" type = "text">Treston Express</th>
-                <td id = "destination1" type = "text"></td>
-                <td id = "frequency1" type = "number"></td>
-                <td id = "nextArrival1" type = "number"></td>
-                <td id = "minutesAway1" type = "number"></td>
-              </tr>
-              <tr>
-                <th scope="row" id = "name2" type = "text">Oregon Trail</th>
-                <td id = "destination2" type = "text"></td>
-                <td id = "frequency2" type = "number"></td>
-                <td id = "nextArrival2" type = "number"></td>
-                <td id = "minutesAway2" type = "number"></td>
-              </tr>
-              <tr>
-                <th scope="row" id = "name3" type = "text">Midnight Carriage</th>
-                <td id = "destination3" type = "text"></td>
-                <td id = "frequency3" type = "number"></td>
-                <td id = "nextArrival3" type = "number"></td>
-                <td id = "minutesAway3" type = "number"></td>
-              </tr>
-              <tr>
-                <th scope="row" id = "name4" type = "text">Boston Bus</th>
-                <td id = "destination4" type = "text"></td>
-                <td id = "frequency4" type = "number"></td>
-                <td id = "nextArrival4" type = "number"></td>
-                <td id = "minutesAway4" type = "number"></td>
-              </tr>
-              <tr>
-                <th scope="row" id = "name5" type = "text">Cali Caravan</th>
-                <td id = "destination5" type = "text"></td>
-                <td id = "frequency5" type = "number"></td>
-                <td id = "nextArrival5" type = "number"></td>
-                <td id = "minutesAway5" type = "number"></td>
-              </tr>
-
-
             </tbody>
           </table>
     </div>
@@ -91,22 +57,25 @@
         <form>
             <div class="form-group">
                 <label>Train Name</label>
-                <input type="text" class="form-control" id="TrainNameInput">
+                <input type="text" class="form-control" id="trainNameInput">
             </div>
             <div class="form-group">
                 <label>Destination</label>
-                <input type="text" class="form-control" id="DestinationInput">
+                <input type="text" class="form-control" id="destinationInput">
             </div>
             <div class="form-group">
                 <label>First Train Time (HH:mm - military time)</label>
-                <input type="text" class="form-control" id="TrainTimeInput">
+                <input type="text" class="form-control" id="trainTimeInput">
             </div>
             <div class="form-group">
                 <label>Frequency (min)</label>
-                <input type="text" class="form-control" id="FrequencyInput">
+                <input type="text" class="form-control" id="frequencyInput">
             </div>
-            <button class="btn btn-primary" type="submit">Submit</button>            
+            <button class="btn btn-primary" type="submit" id = "add-train-btn">Submit</button>            
         </form>
     </div>
+
+    <script src = "trainarrivallogic.js"></script>
 </body>
+
 </html>
